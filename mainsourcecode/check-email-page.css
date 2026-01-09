@@ -1,0 +1,139 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(20px); opacity: 0; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scaleOut {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(0.95); opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #f8eded;
+    font-family: Arial, sans-serif;
+}
+
+.check-email-container {
+    height: 100vh;
+    padding: 0 20px;
+}
+
+.content-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+}
+
+.form-container {
+    padding: 40px;
+    flex: 1;
+}
+
+.form-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.form-container p {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.otp-container {
+    gap: 10px;
+}
+
+.otp-input {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.otp-input:focus {
+    border-color: #EA454C;
+    outline: none;
+    box-shadow: 0 0 4px rgba(234, 69, 76, 0.5);
+}
+
+.back-button {
+    display: block;
+    margin-left: 0;
+    margin-bottom: 15px;
+    color: #6c757d;
+    border-color: #6c757d;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #BD142E;
+    color: white;
+    border-color: #BD142E;
+}
+
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container .logo {
+    max-width: 200px;
+    height: auto;
+}
+
+.btn-danger {
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    height: 45px;
+    width: auto;
+    font-size: 13px;
+}
+
+.btn-danger:hover {
+    background-color: #EA454C; 
+    box-shadow: 0 0 10px #EA454C; 
+    color: #fff; 
+    transform: scale(1.05);
+}
+
+.btn-danger:active {
+    transform: scale(0.95);
+}
