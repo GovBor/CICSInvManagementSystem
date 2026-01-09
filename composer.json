@@ -1,7 +1,0 @@
-{
-    "require": {
-        "symfony/mailer": "^7.2",
-        "symfony/google-mailer": "^7.2",
-        "hybridauth/hybridauth": "^3.11"
-    }
-}
