@@ -1,0 +1,15 @@
+Text Font (Medium): Inter
+Text Color (Grey Hex): 48505E
+
+Login Page Colors:
+> F8F8F8 (Background Tint)
+> EA454C (Buttons)
+
+Main Page Colors (Hex):
+> EA454C (Buttons)
+> BD142E (Red)
+> FFF2F2 (Milky Red)
+> FFFFFF (White)
+> 10A760 (Green)
+> 48505E (Grey)
+> 383E49 (Header Grey)
