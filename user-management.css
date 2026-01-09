@@ -1,0 +1,1075 @@
+:root {
+    --primary-color: #d92332;
+    --primary-dark: #b92a2a;
+    --secondary-color: #f6e5e5;
+    --text-color: #333;
+    --light-gray: #f8f9fa;
+    --border-color: #ddd;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+}
+
+/* Base animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(20px); opacity: 0; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scaleOut {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(0.95); opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+/* ================== */
+/* Page Structure */
+/* ================== */
+html {
+    scroll-behavior: auto !important;  /* Disable smooth scrolling */
+    overflow-anchor: none;            /* Disable scroll adjustment */
+}
+
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.sidebar {
+    width: 250px;
+    background: #fff6f6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding-top: 30px;
+    transform-origin: left center;
+    animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px);
+    animation: fadeIn 0.6s 0.2s ease-out both;
+}
+
+/* ================== */
+/* Sidebar Styles */
+/* ================== */
+
+.sidebar .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    animation: slideIn 0.5s 0.3s ease-out both;
+}
+
+.sidebar .logo-container img {
+    width: 70px;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.sidebar .logo-container img:hover {
+    transform: rotate(5deg) scale(1.1);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.sidebar h2 {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    animation: slideIn 0.5s 0.4s ease-out both;
+}
+
+.sidebar h2 span {
+    font-size: 18px;
+    font-weight: normal;
+    color: var(--text-color);
+    display: block;
+    text-align: center;
+    animation: slideIn 0.5s 0.5s ease-out both;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    padding-top: 50px;
+    animation: fadeIn 0.6s 0.6s ease-out both;
+}
+
+.sidebar ul li {
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: left center;
+    animation: slideIn 0.5s var(--delay, 0.7s) ease-out both;
+}
+
+/* Staggered animation for menu items */
+.sidebar ul li:nth-child(1) { --delay: 0.7s; }
+.sidebar ul li:nth-child(2) { --delay: 0.75s; }
+.sidebar ul li:nth-child(3) { --delay: 0.8s; }
+.sidebar ul li:nth-child(4) { --delay: 0.85s; }
+.sidebar ul li:nth-child(5) { --delay: 0.9s; }
+
+.sidebar ul li i {
+    margin-right: 10px;
+    font-size: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.sidebar ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.sidebar ul li:hover {
+    transform: scale(1.05) translateX(5px);
+    background-color: var(--secondary-color);
+    color: #4d4d4d;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.sidebar ul li:hover i {
+    transform: scale(1.2) rotate(5deg);
+    color: var(--primary-color);
+}
+
+.sidebar ul li.selected a {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border-left: 10px solid var(--primary-dark);
+    padding-left: 20px;
+    padding-right:65px;
+    animation: pulse 0.5s ease-out;
+}
+
+/* User Management specific selected button */
+.userManagementSideButton.selected a {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border-left: 10px solid var(--primary-dark);
+    padding-left: 20px;
+    padding-right: 65px;
+    animation: pulse 0.5s ease-out;
+}
+
+/* Logout button */
+.logout {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: auto;
+    margin-bottom: 100px;
+    transition: all 0.3s ease;
+    animation: slideIn 0.5s 1s ease-out both;
+}
+
+.logout:hover {
+    transform: translateX(5px);
+    text-shadow: 0 2px 4px rgba(217, 35, 50, 0.3);
+}
+
+.logout i {
+    margin-left: 10px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.logout:hover i {
+    transform: translateX(3px) rotate(10deg);
+}
+
+/* ================== */
+/* Header & Top Bar */
+/* ================== */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 70px;
+    animation: slideIn 0.6s 0.2s ease-out both;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #d92332;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeIn 0.6s 0.4s ease-out both;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    animation: fadeIn 0.6s 0.3s ease-out both;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    animation: fadeIn 0.6s 0.4s ease-out both;
+}
+
+/* ================== */
+/* Search & Filters */
+/* ================== */
+
+#searchBox {
+    width: 60%;
+    padding: 8px 8px 8px 32px;
+    border: 0.3px solid #4f4f4f;
+    border-radius: 6px;
+    font-size: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23999' d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 14px 14px;
+    background-color: white;
+    color: #000000;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#searchBox::placeholder {
+    color: #9c9c9c;
+    transition: color 0.3s ease;
+}
+
+#searchBox:hover {
+    border-color: var(--primary-dark);
+    box-shadow: 0 2px 6px rgba(217, 35, 50, 0.1);
+    transform: translateY(-1px);
+}
+
+#searchBox:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(217, 35, 50, 0.2);
+    background-color: var(--secondary-color);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23d92332' d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3E%3C/svg%3E");
+    background-size: 16px 16px;
+    transform: translateY(-2px);
+}
+
+#searchBox:focus::placeholder {
+    color: transparent;
+}
+
+/* ================== */
+/* Buttons */
+/* ================== */
+
+.add-user {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.add-user:hover {
+    transform: scale(1.05) translateY(-2px);
+    background-color: var(--primary-dark);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.add-user i {
+    margin-left: 10px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.add-user:hover i {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* ================== */
+/* Table Styles */
+/* ================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    animation: fadeIn 0.6s 0.5s ease-out both;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+th {
+    background: #ffffff;
+    font-weight: bold;
+    color: #333;
+    position: relative;
+}
+
+th:hover {
+    background-color: var(--secondary-color);
+}
+
+tbody tr {
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+tbody tr:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.005);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+tbody tr td {
+    transition: all 0.3s ease;
+}
+
+tbody tr:hover td {
+    transform: translateX(5px);
+}
+
+/* Role Badges */
+.role-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+}
+
+.role-badge.supervisor {
+    background-color: var(--primary-color);
+}
+
+.role-badge.technician {
+    background-color: var(--info-color);
+}
+
+/* User Actions */
+.user-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.user-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    color: #555;
+}
+
+.user-actions button:hover {
+    transform: scale(1.1);
+}
+
+.edit-user-btn {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background-color: rgba(217, 35, 50, 0.1);
+}
+
+.delete-user-btn {
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.edit-user-btn:hover {
+    color: var(--primary-color);
+}
+
+.delete-user-btn:hover {
+    color: var(--danger-color);
+}
+
+/* Last login formatting */
+#users-table-body td:nth-child(4) {
+    font-family: monospace;
+    font-size: 14px;
+}
+
+/* ================== */
+/* Pagination */
+/* ================== */
+
+.pagination {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 145px;
+    animation: slideInUp 0.5s 0.3s ease-out both;
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.pagination button {
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.pagination button:hover {
+    transform: scale(1.1) translateY(-2px);
+    background-color: var(--primary-dark);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.pagination button:active {
+    transform: scale(0.95) translateY(0);
+}
+
+.pagination span {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+/* ================== */
+/* Modals */
+/* ================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    display: flex;
+    background: white;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-30px) scale(0.95);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 90%;
+    margin: 0 auto; 
+}
+
+.modal.active .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal .close:hover {
+    color: var(--primary-dark);
+    transform: rotate(90deg) scale(1.2);
+}
+
+/* Modal Titles */
+.modal .add-title,
+.modal .edit-title {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Input Groups */
+.modal .input-group {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.modal .input-group label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.modal .input-group input,
+.modal .input-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+.modal .input-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23d92332' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    padding-right: 30px;
+}
+
+/* Focus States */
+.modal .input-group input:focus,
+.modal .input-group select:focus {
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 0 3px rgba(217, 35, 50, 0.2);
+    outline: none;
+}
+
+/* Password Input with Toggle */
+.modal .input-container {
+    position: relative;
+}
+
+.modal .input-container i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal .input-container i:hover {
+    color: var(--primary-dark);
+}
+
+.toggle-password.active {
+    color: var(--primary-dark);
+}
+
+/* Modal Footer Buttons */
+.modal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.modal .cancel-btn{
+    background: none;
+    color: #d92332;
+    border: 1px solid #d92332;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    height: 33px;
+    display: inline-block; /* Makes width adjust to content */
+    margin: 0 auto; /* Centers the button */
+    padding: 0 20px; /* Adjust padding as needed */
+    text-align: center;
+}
+
+.modal .save-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal .save-btn:hover{
+    background-color: #d92332;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal .cancel-btn:hover {
+    background-color: #f6e5e5;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal .add-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 42px;
+}
+
+.modal .add-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Edit Button Specific Style */
+.modal .edit-btn {
+    background: var(--success-color);
+}
+
+.modal .edit-btn:hover {
+    background: #218838;
+}
+
+/* Response Messages */
+.modal #addUserResponseMessage,
+.modal #editUserResponseMessage {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid transparent;
+}
+
+.modal #addUserResponseMessage.success,
+.modal #editUserResponseMessage.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.modal #addUserResponseMessage.error,
+.modal #editUserResponseMessage.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* ================== */
+/* Confirmation & Success Modals */
+/* ================== */
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.confirm-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.confirm-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cancel-btn {
+    background-color: #f1f1f1;
+    color: #333;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #ddd;
+    transform: translateY(-2px);
+}
+
+.success-icon {
+    color: var(--success-color);
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.success-icon i {
+    animation: bounceIn 0.5s;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Delete button specific style */
+.delete-btn {
+    background-color: #dc3545 !important;
+}
+
+.delete-btn:hover {
+    background-color: #c82333 !important;
+}
+
+/* Logout Modal Styles */
+#logoutConfirmModal .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  #logoutConfirmModal .modal-content {
+    width: 400px;
+    max-width: 90%;
+    padding: 30px;
+    margin: 0;
+    text-align: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: scaleIn 0.3s ease-out forwards;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  #cancelLogout {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  #confirmLogout {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  #logoutConfirmModal h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  #logoutConfirmModal p {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  #logoutConfirmModal .modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  #logoutConfirmModal #confirmLogout {
+    background: #d92332;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  #logoutConfirmModal #confirmLogout:hover {
+    background: #b92a2a;
+    transform: scale(1.03);
+  }
+  
+  #logoutConfirmModal #cancelLogout {
+    background: #f1f1f1;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  #logoutConfirmModal #cancelLogout:hover {
+    background: #ddd;
+    transform: scale(1.03);
+  }
+  
+  /* ================== */
+  /* Success Modal Styles */
+  /* ================== */
+  #logoutSuccessModal .modal-content {
+    width: 400px;
+    max-width: 90%;
+    padding: 40px;
+    margin: 0;
+    text-align: center;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+  
+  #logoutSuccessModal .success-icon {
+    color: #28a745;
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: bounceIn 0.5s ease-out;
+  }
+  
+  #logoutSuccessModal h2 {
+    color: #555;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  #logoutSuccessModal p {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  #logoutSuccessModal #confirmLogoutSuccess {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  #logoutSuccessModal #confirmLogoutSuccess:hover {
+    background: #218838;
+    transform: scale(1.03);
+  }
+  
+  /* Logout success redirect animation */
+  .logout-success-redirect {
+    animation: fadeOut 1s ease-in 1.5s forwards;
+  }
+  
+  .products-heading {
+    font-size: 32px;
+    font-weight: bold;
+    color: #d92332;
+    margin: 0;
+    padding: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #d92332;
+    width: 100%;
+    text-align: left;
+    animation: slideIn 0.6s 0.4s ease-out both;
+  }
+
+  .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: rgba(217, 35, 50, 0.08);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.6s 0.7s ease-out both;
+}
+
+.user-info:hover {
+  background-color: rgba(217, 35, 50, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-greeting {
+  background-color: #d92332;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 18px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
+  width: auto;
+  text-align: center;
+}
+
+.user-greeting p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.greeting-name {
+  font-weight: bold;
+}
+
+.user-details {
+  text-align: center;
+  width: 100%;
+}
+
+.user-role {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.user-id {
+  font-size: 12px;
+  color: #777;
+  margin-left: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
