@@ -1,0 +1,128 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(20px); opacity: 0; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scaleOut {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(0.95); opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #F8F8F8;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 150px;
+}
+
+.welcome-subtitle {
+    font-size: 0.9rem; 
+    color: #6c757d; 
+    display: block; 
+    margin-top: 10px; 
+    margin-bottom: 45px;
+}
+
+.forgot-password {
+    color: #48505E; 
+}
+
+.forgot-password:hover {
+    color: #c70039; 
+    text-decoration: underline; 
+}
+
+
+.login-form {
+    width: 300px;
+}
+
+.login-form h1 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-form .form-control {
+    margin-bottom: 15px;
+}
+
+.login-form .btn {
+    width: 100%;
+}
+
+.logo-container {
+    margin-left:170px;
+    margin-right: 30px;
+}
+
+.logo-container img {
+    width: 250px;
+    height: auto;
+}
+
+.form-text {
+    text-align: right;
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 5px;
+    display: block; 
+}
+
+.btn-danger {
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-danger{
+    height: 45px;
+    width: auto;
+    font-size: 13px;
+}
+
+.btn-danger:hover {
+    background-color: #EA454C; 
+    box-shadow: 0 0 10px #EA454C; 
+    color: #fff; 
+}
